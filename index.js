@@ -6,7 +6,7 @@
 // Séparer chaque lettre du tableau
 //condition si autres que [0] === uppercase alors lowercase et si [0] est lower alors upper
 
-let people = [
+const people = [
   "JoHn",
   "ChrISTiana",
   "anThoNY",
@@ -16,19 +16,15 @@ let people = [
   "jeNNIFeR",
 ];
 
-function correctName(people, callback) {
-  for (let i = 0; i < people.length; i++) {
-    let peopleUpper = people[i].toUppercase;
-    let peopleLower;
-    peopleLower = people[i].toUppercase;
-    let correctPeople = callback(peopleUpper, peopleLower);
-    people[i] = correctPeople;
+function prenom(array) {
+  return array.charAt(0).toUpperCase() + array.slice(1).toLowerCase();
+}
+
+function fixPrenom(arrayPrenom, callback) {
+  for (let i = 0; i < arrayPrenom.length; i++) {
+    arrayPrenom[i] = callback(arrayPrenom[i]);
   }
-  return people;
+  return arrayPrenom;
 }
 
-function fixName(peopleUpper, peopleLower) {
-  return peopleUpper.charAt[0] + peopleLower.slice[1];
-}
-
-correctName(people, fixName);
+console.log(fixPrenom(people, prenom));
